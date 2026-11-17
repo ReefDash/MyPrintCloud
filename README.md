@@ -60,7 +60,7 @@ through Elegoo's cloud, and no ports are opened on your home network.
 ```bash
 # on the server
 sudo apt install -y python3-venv git
-git clone https://github.com/<you>/MyPrintCloud.git ~/myprintcloud
+git clone https://github.com/ReefDash/MyPrintCloud.git ~/myprintcloud
 cd ~/myprintcloud
 python3 -m venv venv
 venv/bin/pip install -r server/requirements.txt
