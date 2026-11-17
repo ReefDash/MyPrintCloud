@@ -144,9 +144,12 @@ screen on.
 ## 3. The phone app
 
 - **Browser:** just open your server URL. On Android or iOS, "Add to Home screen" works fine.
-- **Android APK** (adds a print-progress notification). Needs Node 18+ and Android Studio:
+- **Android app:** download `MyPrintCloud.apk` from the [Releases](https://github.com/ReefDash/MyPrintCloud/releases)
+  page, install it (allow "install unknown apps" for your browser), and type your server address and password at
+  sign-in. It adds a print-progress notification.
+- **Build the APK yourself** (optional; needs Node 18+ and Android Studio). You can set `DEFAULT_SERVER` at the top
+  of `web/app.js` to build your address in:
   ```bash
-  # set DEFAULT_SERVER at the top of web/app.js to your URL first (you can still change it at sign-in)
   cd app
   npm install
   npm run sync                      # copies ../web into the app and syncs Capacitor

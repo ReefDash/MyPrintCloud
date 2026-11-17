@@ -8,7 +8,7 @@ const store = {
   set(k, v) { try { localStorage.setItem("mpc_" + k, JSON.stringify(v)); } catch {} },
 };
 const isApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
-const DEFAULT_SERVER = "https://print.example.com";  // APK only: set this to your server before building (the login screen can change it)
+const DEFAULT_SERVER = "";  // APK: optional built-in server address; empty = the sign-in screen asks for it
 let SERVER = store.get("server", isApp ? DEFAULT_SERVER : location.origin);
 let TOKEN = store.get("token", "");
 let ST = { bridge: false, slicer: false, printer: {}, job: null, spools: {} };
@@ -44,7 +44,10 @@ function showLogin() {
 }
 $("#l-go").onclick = () => act($("#l-go"), async () => {
   $("#l-err").textContent = "";
-  SERVER = ($("#l-server").value || SERVER).replace(/\/+$/, "");
+  let srv = ($("#l-server").value || SERVER || "").trim().replace(/\/+$/, "");
+  if (!srv) { $("#l-err").textContent = "Enter your server address (e.g. https://print.example.com)"; return; }
+  if (!/^https?:\/\//i.test(srv)) srv = "https://" + srv;   // typed just the host name
+  SERVER = srv;
   try {
     const r = await api("/api/login", { json: { password: $("#l-pw").value } });
     TOKEN = r.token; store.set("token", TOKEN); store.set("server", SERVER); start();
