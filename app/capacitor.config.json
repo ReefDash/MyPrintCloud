@@ -1,0 +1,7 @@
+{
+  "appId": "com.myprintcloud.app",
+  "appName": "MyPrintCloud",
+  "webDir": "www",
+  "android": { "webContentsDebuggingEnabled": false },
+  "plugins": { "CapacitorHttp": { "enabled": false } }
+}

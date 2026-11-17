@@ -1,0 +1,4 @@
+# Option B for HTTPS: Caddy on the server (ports 80/443 open). Replace the hostname.
+print.example.com {
+    reverse_proxy 127.0.0.1:8770
+}

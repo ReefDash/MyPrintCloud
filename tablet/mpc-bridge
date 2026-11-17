@@ -1,0 +1,4 @@
+#!/data/data/com.termux/files/usr/bin/sh
+# Termux:Boot script: copy to ~/.termux/boot/mpc-bridge and chmod +x, so the link starts when the tablet boots.
+termux-wake-lock
+setsid nohup ~/mpc/run.sh </dev/null >/dev/null 2>&1 &

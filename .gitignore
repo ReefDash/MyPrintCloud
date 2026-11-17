@@ -1,0 +1,27 @@
+# secrets and per-install data: never commit these
+bridge/config.json
+bridge/slicer.json
+server/data/
+server/models/*.onnx
+*.key
+# runtime junk
+__pycache__/
+*.pyc
+*.log
+bridge/work/
+bridge/profiles/
+*.bak*
+# android build output
+app/node_modules/
+app/www/
+app/android/.gradle/
+app/android/build/
+app/android/app/build/
+app/android/local.properties
+app/android/capacitor-cordova-android-plugins/
+app/android/app/src/main/assets/public/
+app/android/app/src/main/assets/capacitor.config.json
+app/android/app/src/main/assets/capacitor.plugins.json
+*.apk
+*.keystore
+*.jks

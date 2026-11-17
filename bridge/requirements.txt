@@ -1,0 +1,13 @@
+websockets>=12
+paho-mqtt>=2.0
+requests>=2.31
+numpy>=1.26
+pillow>=10
+trimesh>=4.4
+shapely>=2.0
+manifold3d>=2.5
+scipy>=1.11
+rtree>=1.2
+mapbox_earcut>=1.0
+networkx>=3.2
+lxml>=5.0

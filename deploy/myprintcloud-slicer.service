@@ -1,0 +1,19 @@
+# Optional cloud slicer: OrcaSlicer on the server slices when your PC is off.
+# /etc/systemd/system/myprintcloud-slicer.service  (see README, "Optional: cloud slicer")
+[Unit]
+Description=MyPrintCloud cloud slicer (OrcaSlicer worker)
+After=network-online.target myprintcloud.service
+
+[Service]
+User=ubuntu
+Environment=HOME=/home/ubuntu
+Environment=MPC_SLICER=/home/ubuntu/orca/orca-slicer
+WorkingDirectory=/home/ubuntu/myprintcloud/slicer
+ExecStart=/home/ubuntu/myprintcloud/slicer/venv/bin/python bridge.py --role slicer --config slicer.json
+Restart=always
+RestartSec=10
+Nice=10
+MemoryMax=6G
+
+[Install]
+WantedBy=multi-user.target

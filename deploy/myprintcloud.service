@@ -1,0 +1,17 @@
+# /etc/systemd/system/myprintcloud.service  (edit User and paths, then: sudo systemctl enable --now myprintcloud)
+[Unit]
+Description=MyPrintCloud printer server
+After=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/myprintcloud/server
+Environment=MPC_DATA=/home/ubuntu/myprintcloud/server/data
+Environment=MPC_WEB=/home/ubuntu/myprintcloud/web
+ExecStart=/home/ubuntu/myprintcloud/venv/bin/python app.py --host 127.0.0.1 --port 8770
+Restart=always
+RestartSec=3
+MemoryMax=1200M
+
+[Install]
+WantedBy=multi-user.target

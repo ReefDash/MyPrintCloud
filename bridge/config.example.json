@@ -1,0 +1,10 @@
+{
+  "server": "https://print.example.com",
+  "bridge_key": "paste the key printed by  python app.py --set-password",
+  "printer": {
+    "host": "192.168.1.50",
+    "serial": "",
+    "access_code": "the LAN access code from the printer's screen"
+  },
+  "camera_fps": 2
+}
